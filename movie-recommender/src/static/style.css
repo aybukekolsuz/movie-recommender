@@ -1,59 +1,113 @@
+/* Bootstrap ve Animate.css ile uyumlu özel stiller */
+
+/* Hareketli arka plan için animasyon */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(270deg, #ffecd2, #fcb69f, #ee0979, #ff6a00, #fcb69f, #ffecd2);
+    background-size: 1200% 1200%;
+    animation: gradientMove 15s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes gradientMove {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
 }
 
 header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
+    background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+    color: #fff;
+    padding: 30px 0 20px 0;
     text-align: center;
-}
-
-h1 {
-    margin: 0;
+    box-shadow: 0 4px 20px rgba(238,9,121,0.2);
+    letter-spacing: 2px;
+    font-size: 2em;
+    font-weight: bold;
+    animation: fadeInDown 1s;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s;
 }
 
 .movie-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 30px;
+    justify-content: center;
+    min-height: 300px;
+    position: relative;
 }
 
+/* Slideshow efekti için */
 .movie-item {
-    background: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
+    background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
+    border: none;
+    border-radius: 20px;
     margin: 10px;
-    padding: 15px;
-    flex: 1 1 calc(30% - 20px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    flex: 1 1 300px;
+    box-shadow: 0 8px 24px rgba(255,106,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.7s;
+    opacity: 0;
+    animation: fadeInMovie 1.5s forwards;
+}
+
+.movie-item:nth-child(1) { animation-delay: 0.2s; }
+.movie-item:nth-child(2) { animation-delay: 0.7s; }
+.movie-item:nth-child(3) { animation-delay: 1.2s; }
+.movie-item:nth-child(4) { animation-delay: 1.7s; }
+.movie-item:nth-child(5) { animation-delay: 2.2s; }
+
+@keyframes fadeInMovie {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+.movie-item:hover {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 16px 32px rgba(238,9,121,0.25);
+    filter: brightness(1.08);
 }
 
 .movie-item h2 {
     font-size: 1.5em;
-    margin: 0 0 10px;
+    margin-bottom: 10px;
+    color: #ee0979;
+    font-weight: bold;
+    text-shadow: 0 2px 8px #fff3;
 }
 
 .movie-item p {
     font-size: 1em;
-    color: #555555;
+    color: #555;
+    margin-bottom: 0;
 }
 
 footer {
     text-align: center;
     padding: 20px 0;
-    background: #35424a;
-    color: #ffffff;
+    background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+    color: #fff;
     position: relative;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -4px 20px rgba(238,9,121,0.2);
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    animation: fadeInUp 1s;
+}
+
+/* Animate.css keyframes örneği */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
 }
