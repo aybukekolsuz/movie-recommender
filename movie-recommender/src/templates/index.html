@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Movie Recommender</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Get Movie Recommendations</h2>
+            <form action="/recommend" method="POST">
+                <label for="genre">Select Genre:</label>
+                <select id="genre" name="genre">
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="romance">Romance</option>
+                </select>
+                <button type="submit">Get Recommendations</button>
+            </form>
+        </section>
+        <section id="recommendations">
+            <h2>Your Recommendations</h2>
+            <ul>
+                <!-- Recommendations will be dynamically inserted here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Movie Recommender. All rights reserved.</p>
+    </footer>
+</body>
+</html>
